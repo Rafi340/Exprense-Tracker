@@ -1,5 +1,5 @@
 import { useState } from "react";
-const ExpenseForm = ({ onSave, options, editTransaction }) => {
+export default function ExpenseForm({ onSave, options, editTransaction }) {
   console.log("edit transaction", editTransaction);
 
   const [transaction, setTransaction] = useState(
@@ -130,7 +130,7 @@ const ExpenseForm = ({ onSave, options, editTransaction }) => {
           className="mt-6 rounded-md bg-teal-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 w-full"
           onClick={(event) => {
             event.preventDefault();
-            onSave(transaction);
+            onSave(transaction, isAdd);
           }}
         >
           {isAdd ? "Save" : "Edit"}
@@ -138,6 +138,4 @@ const ExpenseForm = ({ onSave, options, editTransaction }) => {
       </form>
     </div>
   );
-};
-
-export default ExpenseForm;
+}

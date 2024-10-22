@@ -1,14 +1,14 @@
 const BalanceCard = ({ transactions }) => {
   let income = transactions
-    ?.filter((x) => x.transactionType !== 1)
+    ?.filter((x) => x?.transactionType !== 1)
     .reduce((total, transaction) => {
-      const amount = parseFloat(transaction.amount) || 0;
+      const amount = parseFloat(transaction?.amount) || 0;
       return total + amount;
     }, 0);
   let expense = transactions
-    ?.filter((x) => x.transactionType !== 2)
+    ?.filter((x) => x?.transactionType !== 2)
     .reduce((total, transaction) => {
-      const amount = parseFloat(transaction.amount) || 0;
+      const amount = parseFloat(transaction?.amount) || 0;
       return total + amount;
     }, 0);
   let balance = income - expense;
